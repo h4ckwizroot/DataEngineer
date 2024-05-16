@@ -7,6 +7,7 @@ server_name = ''
 database_name = ''
 username = ''
 password = ''
+azure_table_name = ''
 # -----------------------------------------
 
 # this connection string can be found from the azure sql database connection string
@@ -19,7 +20,7 @@ cnxn: pyodbc.Connection = pyodbc.connect(connection)
 crsr: pyodbc.Cursor = cnxn.cursor()
 
 # Define SQL Query 
-select_sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES"
+select_sql = "SELECT * FROM " + azure_table_name
 
 # Execute SQL Query 
 crsr.execute(select_sql)
